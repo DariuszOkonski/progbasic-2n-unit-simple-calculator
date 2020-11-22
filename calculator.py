@@ -61,15 +61,22 @@ def calc(operator, a, b):
     return round(result, 2)
 
 def simple_calculator():
-    pass
+    end_game = False
+    while not end_game:
+        number1 = ask_for_a_number(True)
+        number2 = ask_for_a_number(True)
+        operator = ask_for_an_operator(True)
+
+        if(number1 == None or number2 == None or operator == None):
+            print("Unable to resolve")
+        else:
+            result = calc(operator, number1, number2)
+            if result != None:
+                print(f"The result is {result}")
+        
+        continue_game = input("Continue (Y/N)? : ")
+        end_game = False if continue_game.lower() == 'y' else True
 
 
 if __name__ == '__main__':
     simple_calculator()
-
-
-
-
-
-result = calc('/', '2.3', '3.3')
-print(result)
