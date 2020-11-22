@@ -15,8 +15,7 @@ def is_valid_operator(operator):
     return operator in operators
 
 
-def ask_for_a_number(force_valid_input):
-    
+def ask_for_a_number(force_valid_input):    
     while True:
         number = is_number(input("Please provide a number: "))
         if(number == None and force_valid_input):
@@ -27,7 +26,14 @@ def ask_for_a_number(force_valid_input):
 
 
 def ask_for_an_operator(force_valid_input):
-    pass
+    while True:
+        operator = (input("Please provide an operator(one of: +, -, *, /): "))
+        valid_operator = is_valid_operator(operator)
+        if(not valid_operator and force_valid_input):
+            print("Unknown operator")
+            continue
+
+        return operator if valid_operator else None
 
 
 def calc(operator, a, b):
@@ -45,6 +51,6 @@ if __name__ == '__main__':
 
 
 
-number = ask_for_a_number(False)
+operator = ask_for_an_operator(False)
 
-print(number)
+print(operator)
