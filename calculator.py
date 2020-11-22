@@ -1,5 +1,13 @@
-def is_number(str):
-    return False
+def is_number(input_number):
+    try:
+        number = int(input_number)
+        if number >= 0:
+            return number
+    except ValueError:
+        pass
+    except TypeError:
+        pass
+    return None
 
 
 def is_valid_operator(operator):
@@ -25,4 +33,10 @@ def simple_calculator():
 if __name__ == '__main__':
     simple_calculator()
 
-print("Hello world")
+
+number = is_number(13)
+print(number)
+
+# is_number('x')
+# is_number('')
+# is_number(None)
