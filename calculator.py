@@ -11,7 +11,8 @@ def is_number(input_number):
 
 
 def is_valid_operator(operator):
-    return False
+    operators = ('+', '-', '*', '/')
+    return operator in operators
 
 
 def ask_for_a_number(force_valid_input):
@@ -34,9 +35,6 @@ if __name__ == '__main__':
     simple_calculator()
 
 
-number = is_number(13)
-print(number)
-
-# is_number('x')
-# is_number('')
-# is_number(None)
+# +, -, *, /, 1, a, None, '' ' '
+result = is_valid_operator('*')
+print(result)
