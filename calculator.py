@@ -37,8 +37,28 @@ def ask_for_an_operator(force_valid_input):
 
 
 def calc(operator, a, b):
-    pass
+    try:
+        a = float(a)
+        b = float(b)
+    except ValueError:
+        return None
 
+    if(not is_valid_operator(operator)):
+        return None
+
+    if(operator == '+'):
+        result = a + b
+    if(operator == '-'):
+        result = a - b
+    if(operator == '*'):
+        result = a * b
+    if(operator == '/'):
+        if b == 0:
+            print("Division by zero")
+            return None
+        result = a / b
+    
+    return round(result, 2)
 
 def simple_calculator():
     pass
@@ -51,6 +71,5 @@ if __name__ == '__main__':
 
 
 
-operator = ask_for_an_operator(False)
-
-print(operator)
+result = calc('/', '2.3', '3.3')
+print(result)
