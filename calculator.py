@@ -33,8 +33,3 @@ def simple_calculator():
 
 if __name__ == '__main__':
     simple_calculator()
-
-
-# +, -, *, /, 1, a, None, '' ' '
-result = is_valid_operator('*')
-print(result)
